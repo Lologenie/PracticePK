@@ -1,12 +1,14 @@
 import java.util.Scanner;
 
-public class Main3 {
+public class Main3 
+{
 
     public static final String UKRAINIAN_ALPHABET = "абвгґдеєжзиіїйклмнопрстуфхцчшщьюя";
     public static final String RUSSIAN_ALPHABET = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя";
     public static final String ENGLISH_ALPHABET = "abcdefghijklmnopqrstuvwxyz";
 
-    public static void main(String[] args) {
+    public static void main(String[] args) 
+    {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Введіть текст для обчислення індексу відповідності:");
@@ -21,7 +23,8 @@ public class Main3 {
         scanner.nextLine(); 
 
         String alphabet;
-        switch (choice) {
+        switch (choice) 
+        {
             case 1:
                 alphabet = UKRAINIAN_ALPHABET;
                 break;
@@ -43,14 +46,16 @@ public class Main3 {
         scanner.close();
     }
 
-    public static double calculateIndex(String text, String alphabet) {
+    public static double calculateIndex(String text, String alphabet) 
+    {
 
         int[] letterCounts = new int[alphabet.length()];
 
         text = text.toLowerCase();
 
 
-        for (char c : text.toCharArray()) {
+        for (char c : text.toCharArray()) 
+        {
             int index = alphabet.indexOf(c);
             if (index != -1) {
                 letterCounts[index]++;
@@ -61,12 +66,14 @@ public class Main3 {
         double totalLetters = 0;
         double index = 0;
 
-        for (int count : letterCounts) {
+        for (int count : letterCounts) 
+        {
             totalLetters += count;
             index += count * (count - 1);
         }
 
-        if (totalLetters > 1) {
+        if (totalLetters > 1) 
+        {
             index /= totalLetters * (totalLetters - 1);
         }
 
