@@ -2,9 +2,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class Main2 {
+public class Main2 
+{
 
-    public static void main(String[] args) {
+    public static void main(String[] args) 
+    {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Введіть текст:");
@@ -45,23 +47,29 @@ public class Main2 {
     }
 
 
-    private static Map<Character, Integer> calculateCharFrequencies(String text, boolean includeSpace) {
+    private static Map<Character, Integer> calculateCharFrequencies(String text, boolean includeSpace) 
+    {
         Map<Character, Integer> frequencies = new HashMap<>();
-        for (char c : text.toCharArray()) {
-            if (!Character.isWhitespace(c) || includeSpace) {
+        for (char c : text.toCharArray()) 
+        {
+            if (!Character.isWhitespace(c) || includeSpace) 
+            {
                 frequencies.put(c, frequencies.getOrDefault(c, 0) + 1);
             }
         }
         return frequencies;
     }
 
-    private static Map<String, Integer> calculateBigramFrequencies(String text, boolean includeSpace, boolean overlap) {
+    private static Map<String, Integer> calculateBigramFrequencies(String text, boolean includeSpace, boolean overlap) 
+    {
         Map<String, Integer> frequencies = new HashMap<>();
         int step = overlap ? 1 : 2;
-        for (int i = 0; i < text.length() - 1; i += step) {
+        for (int i = 0; i < text.length() - 1; i += step) 
+        {
             char c1 = text.charAt(i);
             char c2 = text.charAt(i + 1);
-            if ((!Character.isWhitespace(c1) && !Character.isWhitespace(c2)) || includeSpace) {
+            if ((!Character.isWhitespace(c1) && !Character.isWhitespace(c2)) || includeSpace) 
+            {
                 String bigram = String.valueOf(c1) + c2;
                 frequencies.put(bigram, frequencies.getOrDefault(bigram, 0) + 1);
             }
@@ -70,8 +78,10 @@ public class Main2 {
     }
 
 
-    private static void printFrequencies(Map<?, Integer> frequencies) {
-        for (Map.Entry<?, Integer> entry : frequencies.entrySet()) {
+    private static void printFrequencies(Map<?, Integer> frequencies) 
+    {
+        for (Map.Entry<?, Integer> entry : frequencies.entrySet()) 
+        {
             System.out.println(entry.getKey() + ": " + entry.getValue());
         }
     }
