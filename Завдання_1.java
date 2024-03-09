@@ -4,21 +4,27 @@ import java.util.regex.*;
 public class Main {
 
     public static String filterText(String text, String alphabet, String mode) {
-        if (mode.equals("normal")) {
+        if (mode.equals("normal")) 
+        {
             alphabet += alphabet.toUpperCase() + "abcdefghijklmnopqrstuvwxyz";
-        } else if (mode.equals("with_space")) {
+        } 
+        else if (mode.equals("with_space")) 
+        {
             alphabet += alphabet.toUpperCase() + "abcdefghijklmnopqrstuvwxyz";
-        } else {
+        } else 
+        {
             throw new IllegalArgumentException("Invalid mode. Please choose 'normal' or 'with_space'.");
         }
 
-        if (mode.equals("normal")) {
+        if (mode.equals("normal")) 
+        {
 
             String filteredText = text.replaceAll("[^" + alphabet + "]", "");
 
             filteredText = filteredText.toLowerCase();
             return filteredText;
-        } else if (mode.equals("with_space")) {
+        } 
+        else if (mode.equals("with_space")) {
 
             String filteredText = text.replaceAll("[^" + alphabet + "]", " ");
 
@@ -28,16 +34,20 @@ public class Main {
 
             filteredText = filteredText.toLowerCase();
             return filteredText;
-        } else {
+        } 
+        else 
+        {
             throw new IllegalArgumentException("Invalid mode. Please choose 'normal' or 'with_space'.");
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) 
+    {
         Scanner scanner = new Scanner(System.in);
         boolean exit = false;
 
-        while (!exit) {
+        while (!exit) 
+        {
             System.out.println("Enter the text:");
             String text = scanner.nextLine();
 
@@ -51,11 +61,14 @@ public class Main {
             scanner.nextLine(); // consume newline
 
             String filteredText;
-            if (modeChoice == 1) {
+            if (modeChoice == 1)
+            {
                 filteredText = filterText(text, ukrainianAlphabet + englishAlphabet, "normal");
-            } else if (modeChoice == 2) {
+            } 
+            else if (modeChoice == 2) {
                 filteredText = filterText(text, ukrainianAlphabet + englishAlphabet, "with_space");
-            } else {
+            } else
+            {
                 System.out.println("Invalid mode choice. Using default mode (Normal alphabet).");
                 filteredText = filterText(text, ukrainianAlphabet + englishAlphabet, "normal");
             }
@@ -65,7 +78,8 @@ public class Main {
 
             System.out.println("Do you want to continue? (yes/no)");
             String choice = scanner.nextLine();
-            if (!choice.equalsIgnoreCase("yes")) {
+            if (!choice.equalsIgnoreCase("yes"))
+            {
                 exit = true;
             }
         }
